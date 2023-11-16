@@ -1,0 +1,16 @@
+{
+  "name": "decodr",
+  "version": "1.0.0",
+  "description": "XML - JSON parser",
+  "main": "lib/index.ts",
+  "scripts": {
+    "test": "npm run test"
+  },
+  "keywords": [
+    "XML",
+    "JSON",
+    "TS"
+  ],
+  "author": "ridzuan5757",
+  "license": "ISC"
+}
