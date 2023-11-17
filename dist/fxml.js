@@ -17,12 +17,6 @@ function splitXml(text) {
         .map((line) => line.replace(/\r/g, ""));
 }
 ;
-/**
-  * Convert XML string to Javascript object node in {@link IXmlNode} format.
-  *
-  * @param {string} text XML string
-  * @returns {@link IXmlNode} object node
-  */
 function xmlToObj(text) {
     const lines = splitXml(text);
     let buffer = [];
@@ -64,8 +58,6 @@ function xmlToObj(text) {
         else if (closeTagExp.test(tag)) {
             var lastItem = buffer.pop();
             if (buffer.length != 0) {
-                // if buffer not empty, the popped node is a children of the
-                // item in the buffer
                 buffer[buffer.length - 1].children.push(lastItem);
             }
             else {
@@ -77,3 +69,4 @@ function xmlToObj(text) {
 }
 exports.xmlToObj = xmlToObj;
 ;
+//# sourceMappingURL=fxml.js.map
