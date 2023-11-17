@@ -1,6 +1,6 @@
 import { IXmlNode } from "./interface";
 
-export function xmlToObj(node: IXmlNode): string {
+export function objToXml(node: IXmlNode): string {
   const attributes = Object.keys(node.attributes)
     .map((key) => `${key}="${node.attributes[key]}"`)
     .join(" ");
@@ -9,7 +9,8 @@ export function xmlToObj(node: IXmlNode): string {
     return `<${node.startTag}${attributes ? " " + attributes : ""}/>`;
   }
 
-  const childrenXml = node.children.map((child) => xmlToObj(child)).join("");
-  return `<${node.startTag}${attributes ? " " + attributes : ""
-    }>${childrenXml}</${node.nodeName}>`;
+  const childrenXml = node.children.map((child) => objToXml(child)).join("");
+  return `<${node.startTag}${
+    attributes ? " " + attributes : ""
+  }>${childrenXml}</${node.nodeName}>`;
 }
