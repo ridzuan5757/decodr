@@ -4,7 +4,9 @@
   "description": "XML - JSON parser",
   "main": "lib/index.ts",
   "scripts": {
-    "test": "jest --coverage"
+    "build": "tsc",
+    "test": "jest --coverage",
+    "docs": "npx typedoc ./lib/index.ts"
   },
   "keywords": [
     "XML",
