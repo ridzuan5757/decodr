@@ -45,8 +45,11 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
       
     steps:
+      - name: Install and Build
+        run: npm ci && npm run build
+
       - name: Deploy to GitHub page
-        uses: TypeStrong/typedoc-action@v1
+        uses: JamesIves/github-pages-deploy-action@v4
         with:
           branch: main
           folder: docs
