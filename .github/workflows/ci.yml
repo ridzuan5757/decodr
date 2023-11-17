@@ -5,21 +5,49 @@ on:
     branches:
       - main
 
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
 jobs:
   build:
     runs-on: ubuntu-latest
 
     steps:
-      - name: checkout repository
+      - name: Checkout repository
         uses: actions/checkout@v2
 
-      - name: setup node
+      - name: Setup NodeJS
         uses: actions/setup-node@v3
         with:
           node-version: 18
 
-      - name: install dependendices
+      - name: Install Dependendices
         run: npm install
 
-      - name: unit test
+      - name: Unit Test
         run: npm run test
+
+      - name: Documentation Generation
+        run: npm run docs
+
+      - name: Documentationn Upload
+        uses: actions/upload-pages-artifact@v2
+        with:
+          path: ./docs
+
+  deploy:
+    runs-on: ubuntu-latest
+    
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+      
+    steps:
+      - name: Deploy to GitHub page
+        uses: TypeStrong/typedoc-action@v1
+        with:
+          branch: main
+          folder: docs
+

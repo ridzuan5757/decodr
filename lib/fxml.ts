@@ -17,8 +17,13 @@ function splitXml(text: string): Array<string> {
     .map((line) => line.replace(/\r/g, ""));
 };
 
-
-export function parseXml(text: string): Array<IXmlNode> {
+/**
+  * Convert XML string to Javascript object node in {@link IXmlNode} format.
+  * 
+  * @param {string} text XML string
+  * @returns {@link IXmlNode} object node
+  */
+export function xmlToObj(text: string): Array<IXmlNode> {
   const lines = splitXml(text);
   let buffer: Array<IXmlNode> = [];
   let result: Array<IXmlNode> = [];

@@ -1,5 +1,5 @@
 import { describe, it, test, expect } from "@jest/globals";
-import { parseXml } from "../lib";
+import { xmlToObj } from "../lib";
 
 describe('parseXml function', () => {
   it('should parse a simple XML string with one node', () => {
@@ -11,7 +11,7 @@ describe('parseXml function', () => {
       selfCloseTag: false,
       children: []
     }];
-    const result = parseXml(xmlString);
+    const result = xmlToObj(xmlString);
     expect(result).toEqual(expectedOutput);
   });
 
@@ -24,7 +24,7 @@ describe('parseXml function', () => {
       selfCloseTag: true,
       children: []
     }];
-    const result = parseXml(xmlString);
+    const result = xmlToObj(xmlString);
     expect(result).toEqual(expectedOutput);
   });
 
@@ -38,7 +38,7 @@ describe('parseXml function', () => {
       selfCloseTag: true,
       children: []
     }];
-    const result = parseXml(xmlString);
+    const result = xmlToObj(xmlString);
     expect(result).toEqual(expectedOutput);
   });
 
@@ -64,7 +64,7 @@ describe('parseXml function', () => {
           children: []
         }]
     }];
-    const result = parseXml(xmlString);
+    const result = xmlToObj(xmlString);
     expect(result).toEqual(expectedOutput);
   });
 });
