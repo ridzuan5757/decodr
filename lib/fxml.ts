@@ -15,14 +15,14 @@ function splitXml(text: string): Array<string> {
     .split("\n")
     .filter((line) => line.trim() !== "")
     .map((line) => line.replace(/\r/g, ""));
-};
+}
 
 /**
-  * Convert XML string to Javascript object node in {@link IXmlNode} format.
-  * 
-  * @param {string} text XML string
-  * @returns {@link IXmlNode} object node
-  */
+ * Convert XML string to Javascript object node in {@link IXmlNode} format.
+ *
+ * @param {string} text XML string
+ * @returns {@link IXmlNode} object node
+ */
 export function xmlToObj(text: string): Array<IXmlNode> {
   const lines = splitXml(text);
   let buffer: Array<IXmlNode> = [];
@@ -76,6 +76,4 @@ export function xmlToObj(text: string): Array<IXmlNode> {
   });
 
   return result.length != 0 ? result : [];
-};
-
-
+}

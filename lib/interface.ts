@@ -9,4 +9,3 @@ export interface IXmlNode {
 export interface INodeAttribute {
   [key: string]: number | string;
 }
-
