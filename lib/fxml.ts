@@ -1,12 +1,13 @@
+import { objToXml } from "./fobj";
 import { IXmlNode, INodeAttribute } from "./interface";
 
 const tagRegExp = /(<\/?[^>]+>)/g;
-const nodeNameExp = /<\/?([a-z][a-z0-9_]*)(?::([a-z][a-z0-9]*))?/i;
-const startTagExp = /^<[a-z]/;
+const nodeNameExp = /<\/?([A-Za-z][A-Za-z0-9_]*)(?::([a-z][a-z0-9]*))?/i;
+const startTagExp = /^<[A-Za-z]/;
 const selfCloseTagExp = /\/>$/;
 const closeTagExp = /^<\//;
-const attrRegExp = /\s[a-z0-9-_]+\b(\s*=\s*('|")[\s\S]*?\2)?/gi;
-const splitAttrRegExp = /(\s[a-z0-9-_]+\b\s*)(?:=(\s*('|")[\s\S]*?\3))?/gi;
+const attrRegExp = /\s[A-Za-z0-9-_]+\b(\s*=\s*('|")[\s\S]*?\2)?/gi;
+const splitAttrRegExp = /(\s[A-Za-z0-9-_]+\b\s*)(?:=(\s*('|")[\s\S]*?\3))?/gi;
 const attributeQuotesExp = /^('|")|('|")$/g;
 
 function splitXml(text: string): Array<string> {
