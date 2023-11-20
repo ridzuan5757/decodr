@@ -17,15 +17,21 @@ interface INodeAttribute {
 }
 ```
 
+### Installation
+
+```bash
+npm install decodr
+```
+
 ### Usage
 
 ```typescript
 import { xmlToObj, xmlToObj } from "decodr";
 ```
 
-### Example
-
 #### XML to Object
+
+
 ```
 xmlToObj("<root>content</root>");
 
@@ -39,7 +45,7 @@ xmlToObj("<root>content</root>");
 }];
 ```
 <br/><br/>
-```typescript    
+```    
 xmlToObj("<test />");
 
 // Output:
@@ -50,6 +56,52 @@ xmlToObj("<test />");
     selfCloseTag: true,
     children: []
 }];
+```
+</br></br>
+
+```
+xmlToObj('<person name="John" age="25" />');
+
+// Output
+[{
+    nodeName: "person",
+    attributes: { name: "John", age: "25" },
+    startTag: '<person name="John" age="25" />',
+    selfCloseTag: true,
+    children: []
+}]
+
+```
+</br></br>
+
+```
+xmlToObj("
+    <root>
+        <child1>value1</child1>
+        <child2>value2</child2>
+    </root>
+");
+
+// Output
+[{
+    nodeName: "root",
+    attributes: {},
+    startTag: "<root>",
+    selfCloseTag: false,
+    children: [{
+        nodeName: "child1",
+        attributes: {},
+        startTag: "<child1>value1",
+        selfCloseTag: false,
+        children: []
+    },{
+        nodeName: "child2",
+        attributes: {},
+        startTag: "<child2>value2",
+        selfCloseTag: false,
+        children: []
+    }]
+}]
 ```
 </br></br>
 
@@ -127,8 +179,4 @@ objToXml([{
     <selfClosing key='value'/>
 </nestedSelfClosing>
 ```
-</br></br>
 
-```
-
-```
