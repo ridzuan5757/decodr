@@ -1,7 +1,7 @@
 import { describe, it, test, expect } from "@jest/globals";
 import { IXmlNode, xmlToObj } from "../lib";
 
-describe("parseXml function", () => {
+describe("xmlToObj function", () => {
   it("should parse a simple XML string with one node", () => {
     const xmlString = "<root>content</root>";
     const expectedOutput: Array<IXmlNode> = [

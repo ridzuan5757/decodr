@@ -52,20 +52,10 @@ xmlToObj("<test />");
 }];
 ```
 </br></br>
-```
-xmlToObj("
-    <root>
-        <person>
-            <name>
-            </name>
-            <age unit='years'>
-            </age>
-        </person>
-    </root>
-");
 
-// Output:
-[{
+#### Object to XML
+```
+objToXml([{
     nodeName: "root",
     attributes: {},
     startTag: "root",
@@ -90,27 +80,35 @@ xmlToObj("
           }
         ]
     }]
-}]
+}]);
+
+// Output
+<root>
+    <person>
+        <name>
+        </name>
+        <age unit='years'>
+        </age>
+    </person>
+</root>
 
 ```
 </br></br>
 ```
-xmlToObj("<selfClosing key='value'/>");
-
-// Output
-[{
+objToXml([{
     nodeName: "selfClosing",
     attributes: { key: "value" },
     startTag: "selfClosing",
     selfCloseTag: true,
     children: []
-}]
+}]);
+
+// Output
+<selfClosing key='value'/>
 ```
 </br></br>
 ```
-xmlToObj("<nestedSelfClosing><selfClosing key='value'/></nestedSelfClosing>");
-// Output
-[{
+objToXml([{
     nodeName: "nestedSelfClosing",
     attributes: {},
     startTag: "nestedSelfClosing",
@@ -122,11 +120,15 @@ xmlToObj("<nestedSelfClosing><selfClosing key='value'/></nestedSelfClosing>");
         selfCloseTag: true,
         children: []
     }]
-}]
+}])
+
+// Output
+<nestedSelfClosing>
+    <selfClosing key='value'/>
+</nestedSelfClosing>
 ```
 </br></br>
 
-#### Object to XML
 ```
 
 ```
