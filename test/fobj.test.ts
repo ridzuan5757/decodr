@@ -1,7 +1,7 @@
 import { describe, it, expect } from "@jest/globals";
 import { IXmlNode, objToXml } from "../lib";
 
-describe("xmlToObj function", () => {
+describe("objToXml function", () => {
   const exampleNode: IXmlNode = {
     nodeName: "root",
     attributes: {},
