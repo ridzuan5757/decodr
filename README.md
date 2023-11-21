@@ -31,7 +31,6 @@ import { xmlToObj, xmlToObj } from "decodr";
 
 #### XML to Object
 `xmlToObj` will automatically filter out the header tag `<?xml version="x.x" encoding="UTF-8"?>` regardless it exist or not.
-
 ```
 xmlToObj("<root></root>");
 
@@ -102,12 +101,11 @@ xmlToObj("
     }]
 }]
 ```
-</br></br>
+</br></br></br>
 
 
 #### Object to XML
 `objToXml` will not include the header tag `<?xml version="x.x" encoding="UTF-8"?>` in the return value.
-
 ```
 objToXml([{
     nodeName: "root",
@@ -145,7 +143,6 @@ objToXml([{
         </age>
     </person>
 </root>
-
 ```
 </br></br>
 ```
