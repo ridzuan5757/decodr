@@ -5,26 +5,26 @@ describe("objToXml function", () => {
   const exampleNode: IXmlNode = {
     nodeName: "root",
     attributes: {},
-    startTag: "root",
+    startTag: "<root>",
     selfCloseTag: false,
     children: [
       {
         nodeName: "person",
         attributes: {},
-        startTag: "person",
+        startTag: "<person>",
         selfCloseTag: false,
         children: [
           {
             nodeName: "name",
             attributes: {},
-            startTag: "name",
+            startTag: "<name>",
             selfCloseTag: false,
             children: []
           },
           {
             nodeName: "age",
             attributes: { unit: "years" },
-            startTag: "age",
+            startTag: "<age unit=\"years\">",
             selfCloseTag: false,
             children: []
           }
@@ -44,7 +44,7 @@ describe("objToXml function", () => {
     const selfClosingNode: IXmlNode = {
       nodeName: "selfClosing",
       attributes: { key: "value" },
-      startTag: "selfClosing",
+      startTag: "<selfClosing key=\"value\"/>",
       selfCloseTag: true,
       children: []
     };
@@ -58,13 +58,13 @@ describe("objToXml function", () => {
     const nestedSelfClosingNode: IXmlNode = {
       nodeName: "nestedSelfClosing",
       attributes: {},
-      startTag: "nestedSelfClosing",
+      startTag: "<nestedSelfClosing>",
       selfCloseTag: false,
       children: [
         {
           nodeName: "selfClosing",
           attributes: { key: "value" },
-          startTag: "selfClosing",
+          startTag: "<selfClosing key=\"value\"/>",
           selfCloseTag: true,
           children: []
         }

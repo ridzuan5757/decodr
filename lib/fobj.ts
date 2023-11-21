@@ -6,11 +6,9 @@ export function objToXml(node: IXmlNode): string {
     .join(" ");
 
   if (node.selfCloseTag) {
-    return `<${node.startTag}${attributes ? " " + attributes : ""}/>`;
+    return node.startTag;
   }
 
   const childrenXml = node.children.map((child) => objToXml(child)).join("");
-  return `<${node.startTag}${
-    attributes ? " " + attributes : ""
-  }>${childrenXml}</${node.nodeName}>`;
+  return `${node.startTag}${childrenXml}</${node.nodeName}>`;
 }
