@@ -1,9 +1,12 @@
 import { IXmlNode } from "./interface";
 
+/**
+  * Convert {@link IXmlNode} object to XML string.
+  *
+  * @param node {@link IXmlNode} object.
+  * @returns {string} XML string.
+  */
 export function objToXml(node: IXmlNode): string {
-  const attributes = Object.keys(node.attributes)
-    .map((key) => `${key}="${node.attributes[key]}"`)
-    .join(" ");
 
   if (node.selfCloseTag) {
     return node.startTag;
