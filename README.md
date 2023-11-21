@@ -58,7 +58,6 @@ xmlToObj("<test />");
 }];
 ```
 </br></br>
-
 ```
 xmlToObj('<person name="John" age="25" />');
 
@@ -104,6 +103,7 @@ xmlToObj("
 }]
 ```
 </br></br>
+
 
 #### Object to XML
 `objToXml` will not include the header tag `<?xml version="x.x" encoding="UTF-8"?>` in the return value.
