@@ -1,4 +1,4 @@
-# Decodr
+# Decodr - [Documentation](https://ridzuan5757.github.io/decodr)
 
 ### Simple XML - Typescript/Javascript Object parser
 Convert any XML string to Object type in form of:
