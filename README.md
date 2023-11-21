@@ -30,16 +30,16 @@ import { xmlToObj, xmlToObj } from "decodr";
 ```
 
 #### XML to Object
-
+`xmlToObj` will automatically filter out the header tag `<?xml version="x.x" encoding="UTF-8"?>` regardless it exist or not.
 
 ```
-xmlToObj("<root>content</root>");
+xmlToObj("<root></root>");
 
 // Output:
 [{
     nodeName: "root",
     attributes: {},
-    startTag: "<root>content",
+    startTag: "<root>",
     selfCloseTag: false,
     children: []
 }];
@@ -77,8 +77,8 @@ xmlToObj('<person name="John" age="25" />');
 ```
 xmlToObj("
     <root>
-        <child1>value1</child1>
-        <child2>value2</child2>
+        <child1></child1>
+        <child2></child2>
     </root>
 ");
 
@@ -91,13 +91,13 @@ xmlToObj("
     children: [{
         nodeName: "child1",
         attributes: {},
-        startTag: "<child1>value1",
+        startTag: "<child1>",
         selfCloseTag: false,
         children: []
     },{
         nodeName: "child2",
         attributes: {},
-        startTag: "<child2>value2",
+        startTag: "<child2>",
         selfCloseTag: false,
         children: []
     }]
@@ -106,6 +106,8 @@ xmlToObj("
 </br></br>
 
 #### Object to XML
+`objToXml` will not include the header tag `<?xml version="x.x" encoding="UTF-8"?>` in the return value.
+
 ```
 objToXml([{
     nodeName: "root",
@@ -179,4 +181,3 @@ objToXml([{
     <selfClosing key='value'/>
 </nestedSelfClosing>
 ```
-
